@@ -37,6 +37,9 @@ jobs:
     - name: Retreive secrets and env var from AWS Secret Manager
       run: aws secretsmanager get-secret-value --secret-id server_plaid --query SecretString --output text | jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' > .env
     
+    - name: Run PM2 daemonized
+      run: pm2 --version
+    
     - run: npm ci
     - run: npm run build --if-present
     - run: sudo pm2 restart server
