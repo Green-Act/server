@@ -34,7 +34,9 @@ console.log(JSON.stringify(contract));
 
 
 
-export const reward = async () => {
+export const reward = async (amount_ghk, to) => {
+
+
 
     // ÒProvider
     const provider = new ethers.providers.InfuraProvider(
@@ -50,11 +52,8 @@ export const reward = async () => {
     signer
     );
 
-    const amount_ghk ="5"
-    const to = "0xa4437699EA5A31E85546fcc634f46E164E2D1246"
    const amount = ethers.utils.parseUnits(amount_ghk, "18");
   const tx = await greenHackTokenContract.mint(to, amount);
   console.log(amount_ghk + " GHK have been minted for " + to);
 
-console.log("Hello")
 }

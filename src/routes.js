@@ -14,9 +14,15 @@ routes.get('/api/plaid/transactions', plaidController.getTransactions);
 /*
     ERC20 ROUTES
 */
-routes.get('/api/erc20/reward', erc20Controller.reward);
+// routes.get('/api/erc20/reward/:value/:address', erc20Controller.reward(req,res));
+routes.get('/api/erc20/reward/:value/:address', function(req, res) {
+    erc20Controller.reward(req.params.value,req.params.address)
+})
 
 
+/*
+    LET IT AT THE END AS ORDER MATTERS
+*/
 routes.all('*', (_, res) => res.status(404).send('Page Not Found'));
 
 
