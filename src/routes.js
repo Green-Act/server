@@ -23,7 +23,7 @@ routes.get('/api/erc20/reward/:value/:address', function(req, res) {
 /*
     LET IT AT THE END AS ORDER MATTERS
 */
-routes.all('*', (_, res) => res.status(404).send('Page Not Found'));
+// routes.all('*', (_, res) => res.status(404).send('Page Not Found'));
 
 
 export default routes;
