@@ -10,7 +10,9 @@ module.exports = {
       },
       wallet: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
+        
       },
       token: {
         type: Sequelize.STRING,

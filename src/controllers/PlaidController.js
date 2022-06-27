@@ -102,7 +102,7 @@ export const createAccessToken = async (req, res) => {
             public_token: publicToken 
         });
 
-        accessToken = result.data.access_token;
+        const accessToken = result.data.access_token;
         
         await User.create({
             wallet, token: accessToken
@@ -143,8 +143,12 @@ export const getTransactions = async (req, res) => {
         wallet
     }});
 
+    if (!user) {
+        res.status(404).send('User Not Found');
+    }
+
     const accessToken = user.token
-    
+
     if (!accessToken) {
         res.status(401).send('Bad Request');
         return;
