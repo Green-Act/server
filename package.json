@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel ./src -d dist",
-    "start": "npm run build && node dist/index.js",
-    "dev": "nodemon --exec babel-node ./src/index.js"
+    "start": "NODE_ENV=production npm run build && node dist/index.js",
+    "dev": "NODE_ENV=development nodemon --exec babel-node ./src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +16,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "plaid": "^10.5.0",
+    "sequelize": "^6.21.0",
     "nodemon": "^2.0.16",
-    "ethers": "^5.6.9",
-    "plaid": "^10.5.0"
+    "ethers": "^5.6.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
